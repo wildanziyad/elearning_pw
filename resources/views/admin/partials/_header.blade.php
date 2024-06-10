@@ -176,14 +176,14 @@
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
           <h6>Wildan Ziyad </h6>
-          <span>Network engginer</span>
+          <span>{{Auth::user()->email}}</span>
         </li>
         <li>
           <hr class="dropdown-divider">
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+          <a class="dropdown-item d-flex align-items-center" href="{{route('profile.edit') }}">
             <i class="bi bi-person"></i>
             <span>My Profile</span>
           </a>
@@ -213,10 +213,13 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="#">
-            <i class="bi bi-box-arrow-right"></i>
-            <span>Sign Out</span>
-          </a>
+          <form action="{{ route ('logout')}}" method="POST">
+            @csrf
+            <button class="dropdown-item d-flex align-items-center">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </button>
+          </form>
         </li>
 
       </ul><!-- End Profile Dropdown Items -->

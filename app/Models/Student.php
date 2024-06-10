@@ -10,4 +10,12 @@ class Student extends Model
     use HasFactory;
 
     protected $table ='students';
+
+    protected $fillable = ['name','nim','major','class','course_id'];
+
+    //mendenifisiakan relasi ke model course
+    public function course()
+    {
+        return $this->belongsTo(Courses::class);
+    }
 }
